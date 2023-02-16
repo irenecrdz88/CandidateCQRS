@@ -35,7 +35,10 @@ namespace Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Candidate>()
+            modelBuilder.Entity<Candidate>().HasKey(m => m.Id);
+            modelBuilder.Entity<Candidate>().HasAlternateKey(m => m.Email);
+
+            modelBuilder.Entity<Candidate>()             
               .HasMany(m => m.CandidateExperiences)
               .WithOne(m => m.Candidate)
               .HasForeignKey(m => m.IdCandidate)
