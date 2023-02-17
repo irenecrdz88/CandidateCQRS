@@ -18,7 +18,7 @@ namespace Application.Features.Candidates.Queries
 
         public async Task<List<CandidatesVm>> Handle(GetCandidatesListQuery request, CancellationToken cancellationToken)
         {
-            return _mapper.Map<List<CandidatesVm>>(await _candidateRepository.GetCandidateByEmail(request._Email));
+            return _mapper.Map<List<CandidatesVm>>(await _candidateRepository.GetCandidatesListQuery(request._Surname));
         }
     }
 }

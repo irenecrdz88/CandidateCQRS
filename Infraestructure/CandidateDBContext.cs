@@ -14,6 +14,10 @@ namespace Data
                     Integrated Security = True; Trust Server Certificate=true");
         }
 
+
+        public CandidateDbContext(DbContextOptions<CandidateDbContext> options) : base(options)
+        {
+        }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach (var entry in ChangeTracker.Entries<BaseDomainModel>())

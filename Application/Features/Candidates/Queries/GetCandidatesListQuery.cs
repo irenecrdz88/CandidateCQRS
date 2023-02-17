@@ -1,15 +1,14 @@
-﻿using Domain;
-using MediatR;
+﻿using MediatR;
 
 namespace Application.Features.Candidates.Queries
 {
     public class GetCandidatesListQuery : IRequest<List<CandidatesVm>>
     {
-        public string _Email { get; set; }
+        public string _Surname { get; set; }
 
-        public GetCandidatesListQuery(string email)
+        public GetCandidatesListQuery(string surname)
         {
-            _Email = email ?? throw new ArgumentNullException(nameof(email));
+            _Surname = surname ?? throw new ArgumentNullException(nameof(surname));
         }
     }
 }
