@@ -10,7 +10,7 @@ namespace Application.Contracts.Persistence
 {
     public interface IAsyncRepository<T> where T : BaseDomainModel
     {
-        Task<IReadOnlyList<T>> GetAllAsync();
+        Task<IEnumerable<T>> GetAllAsync();
 
         Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate);
 

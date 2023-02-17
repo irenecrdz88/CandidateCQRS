@@ -20,7 +20,7 @@ namespace Infraestructure.Repository
             _context = context;
         }
 
-        public async Task<IReadOnlyList<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
         }

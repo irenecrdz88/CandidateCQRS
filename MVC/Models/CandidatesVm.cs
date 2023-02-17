@@ -1,7 +1,7 @@
 ﻿using Domain;
 using System.ComponentModel.DataAnnotations;
 
-namespace Application.Features.Candidates.Queries
+namespace MVC.Models
 {
     public class CandidatesVm
     {
@@ -10,9 +10,6 @@ namespace Application.Features.Candidates.Queries
 
 
         [MaxLength(50)]
-        public string Name { get; set; }
-
-        [MaxLength(150)]
         public string Surname { get; set; }
 
         [EmailAddress]

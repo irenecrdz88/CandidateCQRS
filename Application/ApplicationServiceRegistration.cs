@@ -26,7 +26,7 @@ namespace Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
 
-            //services.AddAutoMapper(typeof(Candidate), typeof(CandidatesVm));
+            services.AddAutoMapper(typeof(Candidate), typeof(CandidatesVm));
 
             return services;
         }

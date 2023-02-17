@@ -5,11 +5,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row">
+    <div class="col">
+        <h1>Candidates</h1>
+    </div>
+    <div class="col text-right">
+        <a asp-action="Create" class="btn btn-success">Create New</a>
+    </div>
+</div>
+@using (Html.BeginForm("Index", "Candidate", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-1">
+            <b>Search By:</b>
+        </div>
+        <div class="col-2">
+            @Html.TextBox("Surname") <text>Surname</text>
+        </div>
+        <div class="col-2">
+            @Html.TextBox("Email") <text>Email</text>
+        </div>
+        <div class="col-2">
+            <input type="submit" value="Search" />
+        </div>
+
+    </div>
+}
+
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Surname)
@@ -29,6 +59,9 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Surname)
