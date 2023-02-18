@@ -6,6 +6,8 @@ namespace Application.Contracts.Persistence
     {
         ICandidateRepository CandidateRepository { get;  }
 
+        ICandidateExperienceRepository CandidateExperienceRepository { get; }
+
         IAsyncRepository<TEntity> Repository<TEntity>() where TEntity : BaseDomainModel;
 
         Task<int> Complete();

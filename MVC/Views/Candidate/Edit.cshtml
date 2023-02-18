@@ -1,0 +1,111 @@
+﻿@model Application.Features.Candidates.Queries.CandidatesVm
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit Candidate</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <input asp-for="Id" class="form-control" type="hidden" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h1>Experiences</h1>
+    </div>
+    <div class="col text-right">
+        @Html.ActionLink("CreateExperience", "CreateExperience", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateExperiences.First().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateExperiences.First().Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateExperiences.First().Job)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateExperiences.First().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateExperiences.First().Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateExperiences.First().BeginDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CandidateExperiences.First().EndDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CandidateExperiences)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Job)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeginDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditExperience",  new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "DeleteExperience", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

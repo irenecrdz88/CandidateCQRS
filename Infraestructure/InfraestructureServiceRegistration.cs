@@ -25,6 +25,7 @@ namespace Infraestructure
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
 
             services.AddTransient<ICandidateRepository, CandidateRepository>();
+            services.AddTransient<ICandidateExperienceRepository, CandidateExperienceRepository>();
 
             return services;
         }

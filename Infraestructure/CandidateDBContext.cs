@@ -49,6 +49,9 @@ namespace Data
               .IsRequired()
               .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<CandidateExperience>()
+                .HasKey(m => m.Id);
+
             foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
             {
                 property.SetIsUnicode(false);
@@ -64,7 +67,7 @@ namespace Data
             modelBuilder.Entity<CandidateExperience>().Property(p => p.Job).HasMaxLength(100);
             modelBuilder.Entity<CandidateExperience>().Property(p => p.Description).HasMaxLength(4000);
             modelBuilder.Entity<CandidateExperience>().Property(p => p.Salary).HasColumnType("numeric(8,2)");
-            modelBuilder.Entity<CandidateExperience>().Property(p => p.BeginDate).HasColumnType("datetime");
+            modelBuilder.Entity<CandidateExperience>().Property(p => p.BeginDate).HasColumnType("datetime").IsRequired();
             modelBuilder.Entity<CandidateExperience>().Property(p => p.EndDate).HasColumnType("datetime");
             modelBuilder.Entity<CandidateExperience>().Property(p => p.Id).HasColumnName("IdCandidateExperience");
         }

@@ -11,10 +11,12 @@ namespace Infraestructure.Repository
         private readonly CandidateDbContext _context;
 
         private ICandidateRepository _candidateRepository;
-
+        private ICandidateExperienceRepository _candidateExperienceRepository;
+        
 
         public ICandidateRepository CandidateRepository => _candidateRepository ??= new CandidateRepository(_context);
-
+        public ICandidateExperienceRepository CandidateExperienceRepository => _candidateExperienceRepository ??= new CandidateExperienceRepository(_context);
+      
         public UnitOfWork(CandidateDbContext context)
         {
             _context = context;

@@ -11,9 +11,20 @@ namespace Infraestructure.Repository
         {
         }
 
-        async Task<List<Candidate>> ICandidateRepository.GetCandidatesListQuery(string surname)
+        async Task<List<Candidate>> ICandidateRepository.GetCandidatesBySurname(string surname)
         {
-            return await _context.Candidates!.Where(c => c.Surname == surname).ToListAsync();
+            return await _context.Candidates!.Where(c => c.Surname.Contains(surname)).ToListAsync();
         }
+
+        async Task<List<Candidate>> ICandidateRepository.GetCandidatesByEmail(string email)
+        {
+            return await _context.Candidates!.Where(c => c.Email == email).ToListAsync();
+        }
+
+        async Task<Candidate> ICandidateRepository.GetCandidateById(int id) =>  
+            _context.Candidates!
+                .Where(c => c.Id == id)
+                .Include(e => e.CandidateExperiences)
+                .FirstOrDefault();
     }
 }

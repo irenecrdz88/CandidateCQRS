@@ -1,7 +1,5 @@
 ﻿using Application.Contracts.Persistence;
-using Application.Features.Candidates.Commands.CreateCandidate;
-using Application.Features.Candidates.Commands.DeleteCandidate;
-using Application.Features.Candidates.Commands.UpdateCandidate;
+using Application.Features.CandidateExperiences;
 using Application.Features.Candidates.Queries;
 using Domain;
 using FluentValidation;
@@ -27,6 +25,7 @@ namespace Application
 
 
             services.AddAutoMapper(typeof(Candidate), typeof(CandidatesVm));
+            services.AddAutoMapper(typeof(CandidateExperience), typeof(CandidateExperiencesVm));
 
             return services;
         }

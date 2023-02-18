@@ -2,11 +2,11 @@
 
 namespace Application.Features.Candidates.Queries
 {
-    public class GetCandidatesListQuery : IRequest<List<CandidatesVm>>
+    public class GetCandidatesBySurname : IRequest<List<CandidatesVm>>
     {
         public string _Surname { get; set; }
 
-        public GetCandidatesListQuery(string surname)
+        public GetCandidatesBySurname(string surname)
         {
             _Surname = surname ?? throw new ArgumentNullException(nameof(surname));
         }

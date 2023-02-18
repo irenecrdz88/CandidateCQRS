@@ -13,10 +13,10 @@ namespace Application.Features.Candidates.Commands.UpdateCandidate
               .MaximumLength(50).WithMessage("{Name} has max 50 characters");
 
             RuleFor(p => p.Surname)
-                  .MaximumLength(150).WithMessage("{Surname} has max 50 characters");
+                  .MaximumLength(150).WithMessage("{Surname} has max 150 characters");
 
             RuleFor(p => p.Email)
-                   .MaximumLength(250).WithMessage("{Email} has max 50 characters");
+                   .MaximumLength(250).WithMessage("{Email} has max 250 characters");
 
         }
     }
