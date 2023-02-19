@@ -1,4 +1,5 @@
 ﻿using Application.Contracts.Persistence;
+using Application.Features.Candidates.Queries;
 using Data;
 using Domain;
 using Microsoft.EntityFrameworkCore;
@@ -26,5 +27,10 @@ namespace Infraestructure.Repository
                 .Where(c => c.Id == id)
                 .Include(e => e.CandidateExperiences)
                 .FirstOrDefault();
+
+        public async Task<List<Candidate>> GetCandidatesBySurnameAndEmail(string surname, string email)
+        {
+            return await _context.Candidates!.Where(c => c.Surname.Contains(surname)).Intersect(_context.Candidates!.Where(c => c.Email == email)).ToListAsync();
+        }
     }
 }

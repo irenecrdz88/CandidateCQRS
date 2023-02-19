@@ -31,14 +31,24 @@ namespace MVC.Controllers
 
         public async Task<IActionResult> Search(string? surname, string? email)
         {
-            if (surname != null)
+            if (surname != null && email == null)
             {
                 var query = new GetCandidatesBySurname(surname);
                 return View(await _mediator.Send(query));
             }
-            else
+            else if (surname == null && email != null)
             {
                 var query = new GetCandidatesByEmail(email);
+                return View(await _mediator.Send(query));
+            }
+            else if (surname != null && email != null)
+            {
+                var query = new GetCandidatesBySurnameAndEmail(surname, email);
+                return View(await _mediator.Send(query));
+            }
+            else
+            {
+                var query = new GetCandidates();
                 return View(await _mediator.Send(query));
             }
         }

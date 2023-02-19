@@ -19,9 +19,15 @@
         <div class="col-1">
             <b>Search By:</b>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><text>aplica like</text></div>
         <div class="col-2">
             @Html.TextBox("Surname") <text>Surname</text>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><text>aplica =</text></div>
         <div class="col-2">
             @Html.TextBox("Email") <text>Email</text>
         </div>
@@ -33,22 +39,22 @@
 }
 
 <table class="table">
-        <thead>
-    <tr>
-    <th>
+    <thead>
+        <tr>
+            <th>
                 @Html.DisplayNameFor(model => model.Id)
-    </th>
-    <th>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Surname)
-    </th>
-    <th>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.BirthDate)
-    </th>
-    <th>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Email)
-    </th>
-    <th></th>
-    </tr>
+            </th>
+            <th></th>
+        </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
