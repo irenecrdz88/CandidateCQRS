@@ -8,17 +8,21 @@ namespace Application.Features.CandidateExperiences
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public int IdCandidate { get; set; }
 
         [MaxLength(100)]
+        [Required]
         [DisplayName("Company")]
         public string Company { get; set; }
 
         [MaxLength(100)]
         [DisplayName("Job")]
+        [Required]
         public string Job { get; set; }
 
         [MaxLength(4000)]
+        [Required]
         [DisplayName("Description")]
         public string Description { get; set; }
 

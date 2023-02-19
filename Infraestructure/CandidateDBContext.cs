@@ -7,12 +7,12 @@ namespace Data
 {
     public class CandidateDbContext: DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data Source= localhost\sqlexpress; 
-                    Initial Catalog=Candidate; 
-                    Integrated Security = True; Trust Server Certificate=true");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data Source= localhost\sqlexpress; 
+        //            Initial Catalog=Candidate; 
+        //            Integrated Security = True; Trust Server Certificate=true");
+        //}
 
 
         public CandidateDbContext(DbContextOptions<CandidateDbContext> options) : base(options)
